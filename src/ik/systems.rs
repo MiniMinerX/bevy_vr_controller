@@ -384,14 +384,14 @@ pub fn reset_rotations(
     for (_, ik_chain) in query.iter() {
         for joint in ik_chain.left_chain.joints.iter() {
             let rest = rests.get(*joint).unwrap();
-            *transforms.get_mut(*joint).unwrap().rotation = *rest.local;
+            transforms.get_mut(*joint).unwrap().rotation = rest.local;
             let mut temp = globals.get(*joint).unwrap().compute_transform();
             temp.rotation = rest.global;
             *globals.get_mut(*joint).unwrap() = GlobalTransform::from(temp);
         }
         for joint in ik_chain.right_chain.joints.iter() {
             let rest = rests.get(*joint).unwrap();
-            *transforms.get_mut(*joint).unwrap().rotation = *rest.local;
+            transforms.get_mut(*joint).unwrap().rotation = rest.local;
             let mut temp = globals.get(*joint).unwrap().compute_transform();
             temp.rotation = rest.global;
             *globals.get_mut(*joint).unwrap() = GlobalTransform::from(temp);
