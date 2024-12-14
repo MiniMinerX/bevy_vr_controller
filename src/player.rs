@@ -95,13 +95,15 @@ impl PlayerSettings {
                     transform: Transform::from_xyz(0.0, -self.height / 2.0, 0.0),
                     ..default()
                 },
-                CameraFreeLook(false),
+                CameraFreeLook(true),
                 PlayerCamera,
                 render_layers(),
             ))
             .id();
 
-        commands.entity(body).push_children(&[avatar, camera]);
+        //commands.entity(body).push_children(&[avatar, camera]);
+        commands.entity(body).push_children(&[avatar]);
+
 
         SpawnedPlayer {
             avatar,
@@ -130,6 +132,21 @@ pub fn set_xr_render_layers(
 fn render_layers() -> RenderLayers {
     RenderLayers::layer(0).union(&RENDER_LAYERS[&FirstPersonFlag::FirstPersonOnly])
 }
+
+pub fn follow_camera_system(
+    camera_query: Query<&GlobalTransform, With<PlayerCamera>>,
+    mut player_query: Query<&mut Transform, With<PlayerBody>>,
+) {
+    if let Ok(camera_transform) = camera_query.get_single() {
+        if let Ok(mut player_transform) = player_query.get_single_mut() {
+            // Set player position near the camera’s position
+            player_transform.translation = camera_transform.translation();
+            // Optionally adjust rotation or other properties as needed
+        }
+    }
+}
+
+
 
 #[derive(Component)]
 pub struct PlayerAvatar;

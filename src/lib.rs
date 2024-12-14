@@ -44,6 +44,8 @@ impl Plugin for VrControllerPlugin {
                 look::grab_mouse,
                 #[cfg(feature = "xr")]
                 player::set_xr_render_layers,
+                #[cfg(feature = "xr")]
+                player::follow_camera_system,
                 velocity::calc_average_velocity,
                 (
                     input::mouse::read_mouse_input,
