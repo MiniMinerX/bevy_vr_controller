@@ -76,6 +76,5 @@ impl Plugin for VrControllerPlugin {
                 .before(bevy_xr_utils::xr_utils_actions::XRUtilsActionSystemSet::CreateEvents),
         );
 
-        embedded_asset!(app, "animation/default-animations.glb");
     }
 }
