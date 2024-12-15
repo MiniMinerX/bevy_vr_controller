@@ -30,8 +30,8 @@ impl Plugin for VrControllerPlugin {
             //TnuaControllerPlugin::default(),
             VrmPlugins,
         ))
-        .init_resource::<input::keyboard::InputMap>()
-        .add_event::<input::mouse::CameraLookEvent>()
+        //.init_resource::<input::keyboard::InputMap>()
+        //.add_event::<input::mouse::CameraLookEvent>()
         .add_systems(
             Update,
             (
