@@ -139,7 +139,7 @@ use bevy::prelude::*;
 use bevy_mod_openxr::OxrViews;
 
 #[cfg(feature = "xr")]
-fn update_avatar_from_head_pose(
+pub fn update_avatar_from_head_pose(
     views: Res<OxrViews>,
     mut avatar_query: Query<&mut Transform, With<PlayerBody>>,
 ) {
