@@ -45,7 +45,7 @@ impl Plugin for VrControllerPlugin {
                 #[cfg(feature = "xr")]
                 player::set_xr_render_layers,
                 #[cfg(feature = "xr")]
-                update_avatar_from_head_pose,
+                player::update_avatar_from_head_pose,
                 velocity::calc_average_velocity,
                 (
                     input::mouse::read_mouse_input,
