@@ -45,7 +45,7 @@ impl Plugin for VrControllerPlugin {
                 #[cfg(feature = "xr")]
                 player::set_xr_render_layers,
                 #[cfg(feature = "xr")]
-                player::follow_camera_system,
+                update_avatar_from_head_pose,
                 velocity::calc_average_velocity,
                 (
                     input::mouse::read_mouse_input,
@@ -60,9 +60,9 @@ impl Plugin for VrControllerPlugin {
                             ),
                             movement::void_teleport,
                             movement::move_player,
-                            #[cfg(feature = "xr")]
-                            #[cfg(not(target_family = "wasm"))]
-                            movement::move_xr_root_oxr,
+                            //#[cfg(feature = "xr")]
+                            // #[cfg(not(target_family = "wasm"))]
+                            //movement::move_xr_root_oxr,
                         ),
                     )
                         .chain(),

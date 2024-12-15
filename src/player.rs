@@ -133,18 +133,26 @@ fn render_layers() -> RenderLayers {
     RenderLayers::layer(0).union(&RENDER_LAYERS[&FirstPersonFlag::FirstPersonOnly])
 }
 
-pub fn follow_camera_system(
-    camera_query: Query<&GlobalTransform, With<PlayerCamera>>,
-    mut player_query: Query<&mut Transform, With<PlayerBody>>,
+use bevy::prelude::*;
+
+#[cfg(feature = "xr")]
+use bevy_mod_openxr::OxrViews;
+
+#[cfg(feature = "xr")]
+fn update_avatar_from_head_pose(
+    views: Res<OxrViews>,
+    mut avatar_query: Query<&mut Transform, With<PlayerBody>>,
 ) {
-    if let Ok(camera_transform) = camera_query.get_single() {
-        if let Ok(mut player_transform) = player_query.get_single_mut() {
-            // Set player position near the camera’s position
-            player_transform.translation = camera_transform.translation();
-            // Optionally adjust rotation or other properties as needed
+    // Ensure there is at least one view available
+    if let Some(view) = views.first() {
+        if let Ok(mut avatar_transform) = avatar_query.get_single_mut() {
+            // Update the avatar's position and rotation to match the head pose
+            avatar_transform.translation = view.pose.position.to_vec3();
+            //avatar_transform.rotation = view.pose.orientation.to_quat();
         }
     }
 }
+
 
 
 

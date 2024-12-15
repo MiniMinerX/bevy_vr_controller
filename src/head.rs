@@ -64,6 +64,5 @@ pub(crate) fn rotate_avatar_head(
 
         let new_rot = base.0 * camera_tr.rotation;
         head_tr.rotation = new_rot;
-        head_tr.translation = camera_tr.translation;
     }
 }
