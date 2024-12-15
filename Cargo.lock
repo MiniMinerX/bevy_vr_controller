@@ -886,8 +886,8 @@ dependencies = [
 
 [[package]]
 name = "bevy_mod_openxr"
-version = "0.1.1"
-source = "git+https://github.com/awtterpip/bevy_oxr#901b9bc44647b4abd1bd5d849cb2c53cad6edff5"
+version = "0.1.0-rc2"
+source = "git+https://github.com/awtterpip/bevy_oxr.git?rev=c0be012b9dcc6a501a87aff9b7eafb3d886d8c9e#c0be012b9dcc6a501a87aff9b7eafb3d886d8c9e"
 dependencies = [
  "ash",
  "bevy",
@@ -918,8 +918,8 @@ dependencies = [
 
 [[package]]
 name = "bevy_mod_xr"
-version = "0.1.1"
-source = "git+https://github.com/awtterpip/bevy_oxr#901b9bc44647b4abd1bd5d849cb2c53cad6edff5"
+version = "0.1.0-rc2"
+source = "git+https://github.com/awtterpip/bevy_oxr.git?rev=c0be012b9dcc6a501a87aff9b7eafb3d886d8c9e#c0be012b9dcc6a501a87aff9b7eafb3d886d8c9e"
 dependencies = [
  "bevy",
 ]
@@ -1333,8 +1333,8 @@ dependencies = [
 
 [[package]]
 name = "bevy_xr_utils"
-version = "0.1.1"
-source = "git+https://github.com/awtterpip/bevy_oxr#901b9bc44647b4abd1bd5d849cb2c53cad6edff5"
+version = "0.1.0-rc2"
+source = "git+https://github.com/awtterpip/bevy_oxr.git?rev=c0be012b9dcc6a501a87aff9b7eafb3d886d8c9e#c0be012b9dcc6a501a87aff9b7eafb3d886d8c9e"
 dependencies = [
  "bevy",
  "bevy_mod_openxr",

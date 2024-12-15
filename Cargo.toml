@@ -20,13 +20,17 @@ bevy = { version = "0.14.2", default-features = false, features = [
 ] }
 bevy-tnua = "0.20.0"
 bevy-tnua-avian3d = "0.1.1"
-bevy_mod_xr = { git = "https://github.com/awtterpip/bevy_oxr", optional = true }
+# bevy_mod_xr = { git = "https://github.com/awtterpip/bevy_oxr", optional = true }
+bevy_mod_xr = { git = "https://github.com/awtterpip/bevy_oxr.git", optional = true, rev = "c0be012b9dcc6a501a87aff9b7eafb3d886d8c9e"}
 bevy_vrm = "0.0.12"
-bevy_xr_utils = { git = "https://github.com/awtterpip/bevy_oxr", optional = true }
+# bevy_xr_utils = { git = "https://github.com/awtterpip/bevy_oxr", optional = true }
+bevy_xr_utils = { git = "https://github.com/awtterpip/bevy_oxr.git", optional = true, rev = "c0be012b9dcc6a501a87aff9b7eafb3d886d8c9e"}
 paste = "1.0.15"
 
 [target.'cfg(not(target_family = "wasm"))'.dependencies]
-bevy_mod_openxr = { git = "https://github.com/awtterpip/bevy_oxr", optional = true }
+# bevy_mod_openxr = { git = "https://github.com/awtterpip/bevy_oxr", optional = true }
+bevy_mod_openxr = { git = "https://github.com/awtterpip/bevy_oxr.git", optional = true, rev = "c0be012b9dcc6a501a87aff9b7eafb3d886d8c9e"}
+
 
 [target.'cfg(target_family = "wasm")'.dependencies]
 web-sys = { version = "0.3.70", features = ["Navigator", "Window"] }
