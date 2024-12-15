@@ -95,7 +95,7 @@ impl PlayerSettings {
                     transform: Transform::from_xyz(0.0, -self.height / 2.0, 0.0),
                     ..default()
                 },
-                CameraFreeLook(true),
+                CameraFreeLook(false),
                 PlayerCamera,
                 render_layers(),
             ))
