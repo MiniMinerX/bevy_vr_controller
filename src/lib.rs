@@ -44,25 +44,25 @@ impl Plugin for VrControllerPlugin {
                 look::grab_mouse,
                 #[cfg(feature = "xr")]
                 player::set_xr_render_layers,
-                //#[cfg(feature = "xr")]
+                #[cfg(feature = "xr")]
                 player::follow_camera_system,
                 velocity::calc_average_velocity,
                 (
                     input::mouse::read_mouse_input,
                     look::apply_camera_look,
                     (
-                        //head::rotate_avatar_head,
+                        head::rotate_avatar_head,
                         (
                             (
                                 input::keyboard::read_keyboard_input,
-                                //#[cfg(feature = "xr")]
-                                //input::xr::read_xr_input,
+                                #[cfg(feature = "xr")]
+                                input::xr::read_xr_input,
                             ),
                             movement::void_teleport,
                             movement::move_player,
-                            //#[cfg(feature = "xr")]
-                            //#[cfg(not(target_family = "wasm"))]
-                            //movement::move_xr_root_oxr,
+                            #[cfg(feature = "xr")]
+                            #[cfg(not(target_family = "wasm"))]
+                            movement::move_xr_root_oxr,
                         ),
                     )
                         .chain(),
