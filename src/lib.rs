@@ -39,44 +39,44 @@ impl Plugin for VrControllerPlugin {
                 animation::load::load_animation_nodes,
                 animation::weights::play_avatar_animations,
                 eye_offset::calc_eye_offset,
-                //first_person::setup_first_person,
-                //head::set_avatar_head,
+                first_person::setup_first_person,
+                head::set_avatar_head,
                 look::grab_mouse,
                 #[cfg(feature = "xr")]
                 player::set_xr_render_layers,
                 //#[cfg(feature = "xr")]
-                //player::follow_camera_system,
+                player::follow_camera_system,
                 velocity::calc_average_velocity,
-                //(
-                    //input::mouse::read_mouse_input,
-                    //look::apply_camera_look,
-                    //(
+                (
+                    input::mouse::read_mouse_input,
+                    look::apply_camera_look,
+                    (
                         //head::rotate_avatar_head,
-                        //(
-                            //(
-                                //input::keyboard::read_keyboard_input,
+                        (
+                            (
+                                input::keyboard::read_keyboard_input,
                                 //#[cfg(feature = "xr")]
                                 //input::xr::read_xr_input,
-                            //),
-                            //movement::void_teleport,
-                            //movement::move_player,
+                            ),
+                            movement::void_teleport,
+                            movement::move_player,
                             //#[cfg(feature = "xr")]
                             //#[cfg(not(target_family = "wasm"))]
                             //movement::move_xr_root_oxr,
-                        //),
-                    //)
-                        //.chain(),
-                //)
-                    //.chain(),
+                        ),
+                    )
+                        .chain(),
+                )
+                    .chain(),
             ),
         );
 
-        //#[cfg(feature = "xr")]
-        //app.add_systems(
-        //    Startup,
-        //    input::xr::setup_xr_actions
-        //        .before(bevy_xr_utils::xr_utils_actions::XRUtilsActionSystemSet::CreateEvents),
-        //);
+        #[cfg(feature = "xr")]
+        app.add_systems(
+            Startup,
+            input::xr::setup_xr_actions
+                .before(bevy_xr_utils::xr_utils_actions::XRUtilsActionSystemSet::CreateEvents),
+        );
 
     }
 }
