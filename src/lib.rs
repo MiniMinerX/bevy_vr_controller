@@ -21,8 +21,8 @@ impl Plugin for VrControllerPlugin {
     fn build(&self, app: &mut App) {
         #[cfg(feature = "xr")]
         app.add_plugins((
-            //bevy_xr_utils::tracking_utils::TrackingUtilitiesPlugin,
-            //ik::HumanoidIKPlugin,
+            bevy_xr_utils::tracking_utils::TrackingUtilitiesPlugin,
+            ik::HumanoidIKPlugin,
         ));
 
         app.add_plugins((
