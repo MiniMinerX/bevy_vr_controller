@@ -136,7 +136,9 @@ fn render_layers() -> RenderLayers {
 use bevy::prelude::*;
 
 #[cfg(feature = "xr")]
-use bevy_mod_openxr::OxrViews;
+use bevy_mod_openxr::resources::OxrViews;
+#[cfg(feature = "xr")]
+use bevy_mod_openxr::helper_traits::ToVec3;
 
 #[cfg(feature = "xr")]
 pub fn update_avatar_from_head_pose(
