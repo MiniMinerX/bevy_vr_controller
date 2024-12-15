@@ -26,22 +26,22 @@ impl Plugin for VrControllerPlugin {
         ));
 
         app.add_plugins((
-            //TnuaAvian3dPlugin::default(),
-            //TnuaControllerPlugin::default(),
+            TnuaAvian3dPlugin::default(),
+            TnuaControllerPlugin::default(),
             VrmPlugins,
         ))
-        //.init_resource::<input::keyboard::InputMap>()
-        //.add_event::<input::mouse::CameraLookEvent>()
+        .init_resource::<input::keyboard::InputMap>()
+        .add_event::<input::mouse::CameraLookEvent>()
         .add_systems(
             Update,
             (
                 animation::init_animations,
                 animation::load::load_animation_nodes,
                 animation::weights::play_avatar_animations,
-                //eye_offset::calc_eye_offset,
+                eye_offset::calc_eye_offset,
                 //first_person::setup_first_person,
                 //head::set_avatar_head,
-                //look::grab_mouse,
+                look::grab_mouse,
                 #[cfg(feature = "xr")]
                 player::set_xr_render_layers,
                 //#[cfg(feature = "xr")]
