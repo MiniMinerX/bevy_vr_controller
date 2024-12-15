@@ -40,7 +40,7 @@ impl Plugin for VrControllerPlugin {
                 animation::weights::play_avatar_animations,
                 eye_offset::calc_eye_offset,
                 first_person::setup_first_person,
-                //head::set_avatar_head,
+                head::set_avatar_head,
                 look::grab_mouse,
                 #[cfg(feature = "xr")]
                 player::set_xr_render_layers,
@@ -49,7 +49,7 @@ impl Plugin for VrControllerPlugin {
                 velocity::calc_average_velocity,
                 (
                     input::mouse::read_mouse_input,
-                    //look::apply_camera_look,
+                    look::apply_camera_look,
                     (
                         head::rotate_avatar_head,
                         (

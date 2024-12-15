@@ -43,7 +43,7 @@ pub(crate) fn calc_eye_offset(
                 head = Some(bone_ent);
             }
 
-            println!("{}", bone_name);
+            //println!("{}", bone_name);
         }
 
         let mut offset = if left_eye.is_some() && right_eye.is_some() {
